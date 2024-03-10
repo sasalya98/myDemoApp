@@ -3,7 +3,7 @@ jdk:
   - oraclejdk8
 
 before_install:
-  - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+  - export JAVA_HOME=java-8-openjdk-amd64
 
 install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
