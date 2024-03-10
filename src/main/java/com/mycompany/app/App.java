@@ -77,7 +77,7 @@ public class App
           boolean result0 = App.search(inputList, input2AsInt, input3AsInt, input4AsInt, 0);
 		boolean result1 = App.search(inputList, input2AsInt, input3AsInt, input4AsInt, 1);
          boolean result2 = App.search(inputList, input2AsInt, input3AsInt, input4AsInt, 2);
-         Map map = new HashMap();
+         Map<String, Object> map = new HashMap<>();
           map.put("result0", result0);
           map.put("result1", result1);
           map.put("result2", result2);
@@ -110,7 +110,7 @@ public class App
             
         get("/compute",
             (rq, rs) -> {
-              Map map = new HashMap();
+              Map<String, Object> map = new HashMap<>();
               map.put("result0", "not computed yet!");
               map.put("result1", "not computed yet!");
               map.put("result2", "not computed yet!");
