@@ -49,10 +49,10 @@ public class App
 
           boolean result = App.search(inputList, input2AsInt);
 
-         Map map = new HashMap();
+         /*Map map = new HashMap();
           map.put("result", result);
           return new ModelAndView(map, "compute.mustache");
-        }, new MustacheTemplateEngine());
+        }, new MustacheTemplateEngine());*/
         
         String input3 = req.queryParams("input3").replaceAll("\\s","");
           int input3AsInt = Integer.parseInt(input3);
@@ -61,6 +61,7 @@ public class App
 
          Map map = new HashMap();
           map.put("result2", result2);
+          map.put("result", result);
           return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 
