@@ -75,33 +75,35 @@ public class App
           
           
           boolean result0 = App.search(inputList, input2AsInt, input3AsInt, input4AsInt, 0);
-
+		boolean result1 = App.search(inputList, input2AsInt, input3AsInt, input4AsInt, 1);
+         boolean result2 = App.search(inputList, input2AsInt, input3AsInt, input4AsInt, 2);
          Map map = new HashMap();
           map.put("result0", result0);
-          return new ModelAndView(map, "compute.mustache");
+          map.put("result1", result1);
+          map.put("result2", result2);
+          return new ModlAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 
 	////////////////////////////////////////////////////////////////////
 	
 
-          boolean result1 = App.search(inputList, input2AsInt, input3AsInt, input4AsInt, 1);
+          
 
-         Map map = new HashMap();
+        /* Map map = new HashMap();
           map.put("result1", result1);
           return new ModelAndView(map, "compute.mustache");
-        }, new MustacheTemplateEngine());
+        }, new MustacheTemplateEngine());*/
 
 
         ////////////////////////////////////////////////////////////////////
-        String input4 = req.queryParams("input4").replaceAll("\\s","");
-          int input4AsInt = Integer.parseInt(input4);
+        
 
-          boolean result2 = App.search(inputList, input2AsInt, input3AsInt, input4AsInt, 2);
+          
 
-         Map map = new HashMap();
+         /*Map map = new HashMap();
           map.put("result2", result2);
           return new ModelAndView(map, "compute.mustache");
-        }, new MustacheTemplateEngine());
+        }, new MustacheTemplateEngine());*/
 
 
         ////////////////////////////////////////////////////////////////////
