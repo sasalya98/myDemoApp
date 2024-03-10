@@ -13,14 +13,35 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-    public static boolean search(ArrayList<Integer> array, int e) {
+    public static boolean search(ArrayList<Integer> array, int e, int median, int mean, int operation) {
       System.out.println("inside search");
       if (array == null) return false;
 
-      for (int elt : array) {
-        if (elt == e) return true;
-      }
-      return false;
+        for (int elt : array) {
+            if (elt == e && operation == 0) return true;
+        }
+        int sum = 0;
+        for(int i = 0; i < array.size(); i++){
+            sum += array.get(i);
+        }
+        int meanResult = sum / array.size();
+        if(mean == meanResult && operation == 2){
+            return true;
+        }
+
+        int pointer1 = 0;
+        int pointer2 = array.size()-1;
+
+        while(pointer2 > pointer1){
+            pointer1++;
+            pointer2--;
+        }
+        double medianResult = ((double)array.get(pointer1) + array.get(pointer2))/2;
+        double precisionDifference = 0.0005;
+        if(Math.abs(median - medianResult) < precisionDifference && operation == 1){
+            return true;
+        }
+        return false;
     }
 
     public static void main(String[] args) {
@@ -42,26 +63,61 @@ public class App
             inputList.add(value);
           }
           System.out.println(inputList);
-
-
+          
+	
+	 ////////////////////////////////////////////////////////////////////
           String input2 = req.queryParams("input2").replaceAll("\\s","");
           int input2AsInt = Integer.parseInt(input2);
-
-          boolean result = App.search(inputList, input2AsInt);
+	String input3 = req.queryParams("input3").replaceAll("\\s","");
+          int input3AsInt = Integer.parseInt(input3);
+          String input4 = req.queryParams("input4").replaceAll("\\s","");
+          int input4AsInt = Integer.parseInt(input4);
+          
+          
+          boolean result0 = App.search(inputList, input2AsInt, input3AsInt, input4AsInt, 0);
 
          Map map = new HashMap();
-          map.put("result", result);
+          map.put("result0", result0);
+          return new ModelAndView(map, "compute.mustache");
+        }, new MustacheTemplateEngine());
+
+	////////////////////////////////////////////////////////////////////
+	
+
+          boolean result1 = App.search(inputList, input2AsInt, input3AsInt, input4AsInt, 1);
+
+         Map map = new HashMap();
+          map.put("result1", result1);
           return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 
 
+        ////////////////////////////////////////////////////////////////////
+        String input4 = req.queryParams("input4").replaceAll("\\s","");
+          int input4AsInt = Integer.parseInt(input4);
+
+          boolean result2 = App.search(inputList, input2AsInt, input3AsInt, input4AsInt, 2);
+
+         Map map = new HashMap();
+          map.put("result2", result2);
+          return new ModelAndView(map, "compute.mustache");
+        }, new MustacheTemplateEngine());
+
+
+        ////////////////////////////////////////////////////////////////////
+            
         get("/compute",
             (rq, rs) -> {
               Map map = new HashMap();
-              map.put("result", "not computed yet!");
+              map.put("result0", "not computed yet!");
+              map.put("result1", "not computed yet!");
+              map.put("result2", "not computed yet!");
               return new ModelAndView(map, "compute.mustache");
             },
             new MustacheTemplateEngine());
+            
+            
+            
     }
 
     static int getHerokuAssignedPort() {
