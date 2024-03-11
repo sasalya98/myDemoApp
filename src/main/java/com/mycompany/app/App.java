@@ -42,22 +42,58 @@ public class App
             inputList.add(value);
           }
           System.out.println(inputList);
-
-
-          String input2 = req.queryParams("input2").replaceAll("\\s","");
+          ///////////////////////////////////////////////////// first box
+          String input3 = req.queryParams("input3");
+          java.util.Scanner sc1 = new java.util.Scanner(input3);
+          sc1.useDelimiter("[;\r\n]+");
+          java.util.ArrayList<Integer> inputList3 = new java.util.ArrayList<>();
+          while (sc1.hasNext())
+          {
+            int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
+            inputList3.add(value);
+          }
+          System.out.println(inputList3);
+	  ///////////////////////////////////////////////////// third box
+	  String input5 = req.queryParams("input5");
+          java.util.Scanner sc1 = new java.util.Scanner(input5);
+          sc1.useDelimiter("[;\r\n]+");
+          java.util.ArrayList<String> inputList5 = new java.util.ArrayList<>();
+          while (sc1.hasNext())
+          {
+            //int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
+            inputList5.add(sc1.next().replaceAll("\\s",""));
+          }
+          System.out.println(inputList5);
+	  ///////////////////////////////////////////////////// fifth box
+	  String input5 = req.queryParams("input7");
+          java.util.Scanner sc1 = new java.util.Scanner(input7);
+          sc1.useDelimiter("[;\r\n]+");
+          java.util.ArrayList<String> inputList5 = new java.util.ArrayList<>();
+          while (sc1.hasNext())
+          {
+            //int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
+            inputList7.add(sc1.next().replaceAll("\\s",""));
+          }
+          System.out.println(inputList7);
+	  ///////////////////////////////////////////////////// seventh box
+	  String input2 = req.queryParams("input2").replaceAll("\\s","");
           int input2AsInt = Integer.parseInt(input2);
-
-          boolean result = App.search(inputList, input2AsInt);
+	  ///////////////////////////////////////////////////// second box
+	  String input4 = req.queryParams("input4").replaceAll("\\s","");
+          int input4AsInt = Integer.parseInt(input4);
+          ///////////////////////////////////////////////////// fourth box
+          String input6 = req.queryParams("input6").replaceAll("\\s","");
+          int input6AsInt = Integer.parseInt(input6);
+	  ///////////////////////////////////////////////////// sixth box	 
+          
+          
 
          /*Map map = new HashMap();
           map.put("result", result);
           return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());*/
         
-        String input3 = req.queryParams("input3").replaceAll("\\s","");
-          int input3AsInt = Integer.parseInt(input3);
-
-          boolean result2 = App.search(inputList, input3AsInt);
+        
 
          Map map = new HashMap();
           map.put("result2", result2);
