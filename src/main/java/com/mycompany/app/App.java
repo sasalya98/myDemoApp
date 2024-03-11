@@ -30,16 +30,16 @@ public class App
         }
         double medianResult = (array.get(pointer1) + array.get(pointer2))/2;
         double precisionDifference = 0.0005;
-        if(Math.abs(e - medianResult) < precisionDifference && operation == 1){
+        if(Math.abs(n - medianResult) < precisionDifference && operation == 1){
             return true;
         }
         
-        int sum = 0;
+        double sum = 0;
         for(int i = 0; i < array.size(); i++){
             sum += array.get(i);
         }
         int meanResult = sum / array.size();
-        if(mean == meanResult && operation == 2){
+        if(Math.abs(n - meanResult) < precisionDifference && operation == 2){
             return true;
         }
       return false;
@@ -80,7 +80,7 @@ public class App
           String input4 = req.queryParams("input4").replaceAll("\\s","");
           double input4AsDouble = Double.parseDouble(input4);
 
-          boolean result = App.search(inputList, input2AsInt, -1);
+          boolean result = App.search(inputList, input2AsInt, 2.0, -1);
 	  boolean result2 = App.search(inputList, input2AsInt, input3AsDouble, 1);
 	  boolean result3 = App.search(inputList, input2AsInt, input3AsDouble, 2);
 
