@@ -13,7 +13,7 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-    public static boolean search(ArrayList<Integer> array, int e, double n, int operation) {
+    public static boolean search(ArrayList<Integer> array, int e, double n, int operation, ArrayList<String> array2) {
       System.out.println("inside search");
       if (array == null) return false;
 
@@ -42,6 +42,10 @@ public class App
         if(Math.abs(n - meanResult) < precisionDifference && operation == 2){
             return true;
         }
+        
+        for (String str : array)  {
+        if (str.equals("a")&& operation == 3) return true;
+      }
       return false;
     }
 
@@ -64,6 +68,17 @@ public class App
             inputList.add(value);
           }
           System.out.println(inputList);
+          
+          String input5 = req.queryParams("input1");
+          java.util.Scanner sc2 = new java.util.Scanner(input5);
+          sc1.useDelimiter("[;\r\n]+");
+          java.util.ArrayList<String> inputList2 = new java.util.ArrayList<>();
+          while (sc2.hasNext())
+          {
+            
+            inputList.add(sc2.next().replaceAll("\\s",""));
+          }
+          System.out.println(inputList2);
 
 
          /*Map map = new HashMap();
@@ -80,15 +95,16 @@ public class App
           String input4 = req.queryParams("input4").replaceAll("\\s","");
           double input4AsDouble = Double.parseDouble(input4);
 
-          boolean result = App.search(inputList, input2AsInt, 2.0, -1);
-	  boolean result2 = App.search(inputList, input2AsInt, input3AsDouble, 1);
-	  boolean result3 = App.search(inputList, input2AsInt, input4AsDouble, 2);
-
+          boolean result = App.search(inputList, input2AsInt, 2.0, -1, inputList2);
+	  boolean result2 = App.search(inputList, input2AsInt, input3AsDouble, 1, inputList2);
+	  boolean result3 = App.search(inputList, input2AsInt, input4AsDouble, 2, inputList2);
+	  boolean result4 = App.search(inputList, input2AsInt, input4AsDouble, 3, inputList2);
          Map map = new HashMap();
           
           map.put("result", result);
           map.put("result2", result2);
           map.put("result3", result3);
+          map.put("result4", result4);
           return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 
@@ -99,6 +115,7 @@ public class App
               map.put("result", "not computed yet!");
               map.put("result2", "not computed yet!");
               map.put("result3", "not computed yet!");
+              map.put("result4", "not computed yet!");
               return new ModelAndView(map, "compute.mustache");
             },
             new MustacheTemplateEngine());
