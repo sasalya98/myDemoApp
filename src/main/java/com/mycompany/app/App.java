@@ -50,7 +50,7 @@ public class App
         };
       }
       
-      if(counter == 3 && palindrome_counter == e){
+      if(operation == 3 && palindrome_counter == e){
       	return true;
       }
       return false;
