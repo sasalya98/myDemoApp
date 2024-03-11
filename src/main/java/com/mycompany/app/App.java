@@ -38,7 +38,7 @@ public class App
         for(int i = 0; i < array.size(); i++){
             sum += array.get(i);
         }
-        int meanResult = sum / array.size();
+        double meanResult = sum / array.size();
         if(Math.abs(n - meanResult) < precisionDifference && operation == 2){
             return true;
         }
