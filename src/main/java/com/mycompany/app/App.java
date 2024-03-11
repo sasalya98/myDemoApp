@@ -13,7 +13,7 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-    public static boolean search(ArrayList<Integer> array, int e, int operation) {
+    public static boolean search(ArrayList<Integer> array, int e, double n, int operation) {
       System.out.println("inside search");
       if (array == null) return false;
 
@@ -31,6 +31,15 @@ public class App
         double medianResult = (array.get(pointer1) + array.get(pointer2))/2;
         double precisionDifference = 0.0005;
         if(Math.abs(e - medianResult) < precisionDifference && operation == 1){
+            return true;
+        }
+        
+        int sum = 0;
+        for(int i = 0; i < array.size(); i++){
+            sum += array.get(i);
+        }
+        int meanResult = sum / array.size();
+        if(mean == meanResult && operation == 2){
             return true;
         }
       return false;
@@ -66,15 +75,20 @@ public class App
           int input2AsInt = Integer.parseInt(input2);
           
           String input3 = req.queryParams("input3").replaceAll("\\s","");
-          int input3AsInt = Integer.parseInt(input3);
+          double input3AsDouble = Double.parseDouble(input3);
+          
+          String input4 = req.queryParams("input4").replaceAll("\\s","");
+          double input4AsDouble = Double.parseDouble(input4);
 
           boolean result = App.search(inputList, input2AsInt, -1);
-	  boolean result2 = App.search(inputList, input3AsInt, 1);
+	  boolean result2 = App.search(inputList, input2AsInt, input3AsDouble, 1);
+	  boolean result3 = App.search(inputList, input2AsInt, input3AsDouble, 2);
 
          Map map = new HashMap();
           
           map.put("result", result);
           map.put("result2", result2);
+          map.put("result3", result3);
           return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 
@@ -84,6 +98,7 @@ public class App
               Map map = new HashMap();
               map.put("result", "not computed yet!");
               map.put("result2", "not computed yet!");
+              map.put("result3", "not computed yet!");
               return new ModelAndView(map, "compute.mustache");
             },
             new MustacheTemplateEngine());
