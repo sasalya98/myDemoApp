@@ -17,8 +17,8 @@ public class App
       System.out.println("inside search");
       if (array == null) return false;
 
-      for (int elt : array && operation == -1) {
-        if (elt == e) return true;
+      for (int elt : array  {
+        if (elt == e&& operation == -1)) return true;
       }
       
       int pointer1 = 0;
