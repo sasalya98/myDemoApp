@@ -29,7 +29,7 @@ public class App
             pointer2--;
         }
         double medianResult = ((double)array.get(pointer1) + array.get(pointer2))/2;
-        double precisionDifference = 0.0005;
+        double precisionDifference = 0.01;
         if(Math.abs(n - medianResult) < precisionDifference && operation == 1){
             return true;
         }
