@@ -43,7 +43,7 @@ public class App
             return true;
         }
         
-        for (String str : array)  {
+        for (String str : array2)  {
         if (str.equals("a")&& operation == 3) return true;
       }
       return false;
@@ -76,7 +76,7 @@ public class App
           while (sc2.hasNext())
           {
             
-            inputList.add(sc2.next().replaceAll("\\s",""));
+            inputList2.add(sc2.next().replaceAll("\\s",""));
           }
           System.out.println(inputList2);
 
