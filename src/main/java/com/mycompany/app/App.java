@@ -65,10 +65,10 @@ public class App
           }
           System.out.println(inputList5);
 	  ///////////////////////////////////////////////////// fifth box
-	  String input5 = req.queryParams("input7");
+	  String input7 = req.queryParams("input7");
           java.util.Scanner sc1 = new java.util.Scanner(input7);
           sc1.useDelimiter("[;\r\n]+");
-          java.util.ArrayList<String> inputList5 = new java.util.ArrayList<>();
+          java.util.ArrayList<String> inputList7 = new java.util.ArrayList<>();
           while (sc1.hasNext())
           {
             //int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
