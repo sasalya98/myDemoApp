@@ -13,13 +13,26 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-    public static boolean search(ArrayList<Integer> array, int e) {
+    public static boolean search(ArrayList<Integer> array, int e, int operation) {
       System.out.println("inside search");
       if (array == null) return false;
 
-      for (int elt : array) {
+      for (int elt : array && operation == -1) {
         if (elt == e) return true;
       }
+      
+      int pointer1 = 0;
+        int pointer2 = array.size()-1;
+
+        while(pointer2 > pointer1){
+            pointer1++;
+            pointer2--;
+        }
+        double medianResult = (array.get(pointer1) + array.get(pointer2))/2;
+        double precisionDifference = 0.0005;
+        if(Math.abs(median - medianResult) < precisionDifference && operation == 1){
+            return true;
+        }
       return false;
     }
 
@@ -42,61 +55,21 @@ public class App
             inputList.add(value);
           }
           System.out.println(inputList);
-          ///////////////////////////////////////////////////// first box
-          String input3 = req.queryParams("input3");
-          java.util.Scanner sc3 = new java.util.Scanner(input3);
-          sc1.useDelimiter("[;\r\n]+");
-          java.util.ArrayList<Integer> inputList3 = new java.util.ArrayList<>();
-          while (sc3.hasNext())
-          {
-            int value = Integer.parseInt(sc3.next().replaceAll("\\s",""));
-            inputList3.add(value);
-          }
-          System.out.println(inputList3);
-	  ///////////////////////////////////////////////////// third box
-	  String input5 = req.queryParams("input5");
-          java.util.Scanner sc5 = new java.util.Scanner(input5);
-          sc1.useDelimiter("[;\r\n]+");
-          java.util.ArrayList<String> inputList5 = new java.util.ArrayList<>();
-          while (sc5.hasNext())
-          {
-            //int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
-            inputList5.add(sc5.next().replaceAll("\\s",""));
-          }
-          System.out.println(inputList5);
-	  ///////////////////////////////////////////////////// fifth box
-	  String input7 = req.queryParams("input7");
-          java.util.Scanner sc7 = new java.util.Scanner(input7);
-          sc1.useDelimiter("[;\r\n]+");
-          java.util.ArrayList<String> inputList7 = new java.util.ArrayList<>();
-          while (sc7.hasNext())
-          {
-            //int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
-            inputList7.add(sc7.next().replaceAll("\\s",""));
-          }
-          System.out.println(inputList7);
-	  ///////////////////////////////////////////////////// seventh box
-	  String input2 = req.queryParams("input2").replaceAll("\\s","");
-          int input2AsInt = Integer.parseInt(input2);
-	  ///////////////////////////////////////////////////// second box
-	  String input4 = req.queryParams("input4").replaceAll("\\s","");
-          int input4AsInt = Integer.parseInt(input4);
-          ///////////////////////////////////////////////////// fourth box
-          String input6 = req.queryParams("input6").replaceAll("\\s","");
-          int input6AsInt = Integer.parseInt(input6);
-	  ///////////////////////////////////////////////////// sixth box	 
-          
-          
+
 
          /*Map map = new HashMap();
           map.put("result", result);
           return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());*/
         
-        
+          String input2 = req.queryParams("input2").replaceAll("\\s","");
+          int input2AsInt = Integer.parseInt(input2);
+
+          boolean result = App.search(inputList, input2AsInt, 1);
+
 
          Map map = new HashMap();
-          map.put("result2", result2);
+          
           map.put("result", result);
           return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
@@ -106,7 +79,6 @@ public class App
             (rq, rs) -> {
               Map map = new HashMap();
               map.put("result", "not computed yet!");
-              map.put("result2", "not computed yet!");
               return new ModelAndView(map, "compute.mustache");
             },
             new MustacheTemplateEngine());
