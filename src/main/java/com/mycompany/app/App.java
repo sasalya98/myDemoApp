@@ -44,7 +44,7 @@ public class App
         }
         
         for (String str : array2)  {
-        if (str.equals("a")&& operation == 3) return true;
+        if (str.equals("a") && operation == 3) return true;
       }
       return false;
     }
@@ -71,7 +71,7 @@ public class App
           
           String input5 = req.queryParams("input1");
           java.util.Scanner sc2 = new java.util.Scanner(input5);
-          sc1.useDelimiter("[;\r\n]+");
+          sc2.useDelimiter("[;\r\n]+");
           java.util.ArrayList<String> inputList2 = new java.util.ArrayList<>();
           while (sc2.hasNext())
           {
