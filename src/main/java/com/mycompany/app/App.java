@@ -43,10 +43,33 @@ public class App
             return true;
         }
         
+        int palindrome_counter = 0;
         for (int elt : array)  {
-        if (elt == e&& operation == 3) return true;
+        if (isPalindrome(elt)){
+        	palindrome_counter++;
+        };
+      }
+      
+      if(counter == 3 && palindrome_counter == e){
+      	return true;
       }
       return false;
+    }
+    
+    public static boolean isPalindrome(int number){
+    	String original;
+    	String reverse;
+	int num = number;
+	while(number >0){
+		original = (number % 10) + original;
+		reverse = reverse + (number % 10);
+		number /= 10; 
+	}
+	
+	if(original.equals(reverse)){
+		return true;
+	}
+	return false;    	
     }
 
     public static void main(String[] args) {
@@ -94,11 +117,14 @@ public class App
           
           String input4 = req.queryParams("input4").replaceAll("\\s","");
           double input4AsDouble = Double.parseDouble(input4);
+          
+          String input6 = req.queryParams("input6").replaceAll("\\s","");
+          int input6AsInt = Integer.parseInt(input6);
 
           boolean result = App.search(inputList, input2AsInt, 2.0, -1, inputList2);
 	  boolean result2 = App.search(inputList, input2AsInt, input3AsDouble, 1, inputList2);
 	  boolean result3 = App.search(inputList, input2AsInt, input4AsDouble, 2, inputList2);
-	  boolean result4 = App.search(inputList, input2AsInt, input4AsDouble, 3, inputList2);
+	  boolean result4 = App.search(inputList, input6AsInt, input4AsDouble, 3, inputList2);
          Map map = new HashMap();
           
           map.put("result", result);
