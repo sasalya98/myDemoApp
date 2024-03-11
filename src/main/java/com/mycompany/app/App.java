@@ -44,7 +44,7 @@ public class App
         }
         
         int palindrome_counter = 0;
-        for (int elt : array)  {
+        for (int elt : array2)  {
         if (isPalindrome(elt)){
         	palindrome_counter++;
         };
