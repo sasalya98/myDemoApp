@@ -28,7 +28,7 @@ public class App
             pointer1++;
             pointer2--;
         }
-        double medianResult = (array.get(pointer1) + array.get(pointer2))/2;
+        double medianResult = ((double)array.get(pointer1) + array.get(pointer2))/2;
         double precisionDifference = 0.0005;
         if(Math.abs(n - medianResult) < precisionDifference && operation == 1){
             return true;
@@ -82,7 +82,7 @@ public class App
 
           boolean result = App.search(inputList, input2AsInt, 2.0, -1);
 	  boolean result2 = App.search(inputList, input2AsInt, input3AsDouble, 1);
-	  boolean result3 = App.search(inputList, input2AsInt, input3AsDouble, 2);
+	  boolean result3 = App.search(inputList, input2AsInt, input4AsDouble, 2);
 
          Map map = new HashMap();
           
