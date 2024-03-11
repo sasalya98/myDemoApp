@@ -13,7 +13,7 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-    public static boolean search(ArrayList<Integer> array, int e, double n, int operation, ArrayList<String> array2) {
+    public static boolean search(ArrayList<Integer> array, int e, double n, int operation, ArrayList<Integer> array2) {
       System.out.println("inside search");
       if (array == null) return false;
 
@@ -43,8 +43,8 @@ public class App
             return true;
         }
         
-        for (String str : array2)  {
-        if (str.equals("a") && operation == 3) return true;
+        for (int elt : array)  {
+        if (elt == e&& operation == 3) return true;
       }
       return false;
     }
@@ -69,14 +69,14 @@ public class App
           }
           System.out.println(inputList);
           
-          String input5 = req.queryParams("input1");
+          String input5 = req.queryParams("input5");
           java.util.Scanner sc2 = new java.util.Scanner(input5);
           sc2.useDelimiter("[;\r\n]+");
-          java.util.ArrayList<String> inputList2 = new java.util.ArrayList<>();
+          java.util.ArrayList<Integer> inputList2 = new java.util.ArrayList<>();
           while (sc2.hasNext())
           {
-            String value2 = sc2.next().replaceAll("\\s", "");
-            inputList2.add(value2);
+            int value = Integer.parseInt(sc2.next().replaceAll("\\s",""));
+            inputList2.add(value);
           }
           System.out.println(inputList2);
 

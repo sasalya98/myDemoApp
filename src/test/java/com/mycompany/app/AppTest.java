@@ -44,19 +44,19 @@ public class AppTest
 
     public void testFound() {
         ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-        ArrayList<String> array2 = new ArrayList<>(Arrays.asList("ad","da","adda","dada"));
+        ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
         assertTrue(new App().search(array, 4, 2.0,-1, array2));
     }
 
     public void testNotFound() {
         ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-        ArrayList<String> array2 = new ArrayList<>(Arrays.asList("ad","da","adda","dada"));
+        ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
         assertFalse(new App().search(array, 5, 2.0, -1, array2));
     }
 
     public void testEmptyArray() {
         ArrayList<Integer> array = new ArrayList<>();
-        ArrayList<String> array2 = new ArrayList<>(Arrays.asList("ad","da","adda","dada"));
+        ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
         assertFalse(new App().search(array, 1, 2.0, -1, array2));
     }
 
