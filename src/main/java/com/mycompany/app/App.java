@@ -75,8 +75,8 @@ public class App
           java.util.ArrayList<String> inputList2 = new java.util.ArrayList<>();
           while (sc2.hasNext())
           {
-            
-            inputList2.add(sc2.next().replaceAll("\\s",""));
+            String value2 = sc2.next().replaceAll("\\s", "");
+            inputList2.add(value2);
           }
           System.out.println(inputList2);
 
