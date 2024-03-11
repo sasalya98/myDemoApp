@@ -57,8 +57,8 @@ public class App
     }
     
     public static boolean isPalindrome(int number){
-    	String original;
-    	String reverse;
+    	String original = "";
+    	String reverse = "" ;
 	int num = number;
 	while(number >0){
 		original = (number % 10) + original;
