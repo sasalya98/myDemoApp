@@ -64,13 +64,17 @@ public class App
         
           String input2 = req.queryParams("input2").replaceAll("\\s","");
           int input2AsInt = Integer.parseInt(input2);
+          
+          String input3 = req.queryParams("input3").replaceAll("\\s","");
+          int input3AsInt = Integer.parseInt(input3);
 
-          boolean result = App.search(inputList, input2AsInt, 1);
-
+          boolean result = App.search(inputList, input2AsInt, -1);
+	  boolean result2 = App.search(inputList, input3AsInt, 1);
 
          Map map = new HashMap();
           
           map.put("result", result);
+          map.put("result2", result2);
           return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 
@@ -79,6 +83,7 @@ public class App
             (rq, rs) -> {
               Map map = new HashMap();
               map.put("result", "not computed yet!");
+              map.put("result2", "not computed yet!");
               return new ModelAndView(map, "compute.mustache");
             },
             new MustacheTemplateEngine());
