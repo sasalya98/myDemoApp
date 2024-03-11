@@ -30,7 +30,7 @@ public class App
         }
         double medianResult = (array.get(pointer1) + array.get(pointer2))/2;
         double precisionDifference = 0.0005;
-        if(Math.abs(median - medianResult) < precisionDifference && operation == 1){
+        if(Math.abs(e - medianResult) < precisionDifference && operation == 1){
             return true;
         }
       return false;
