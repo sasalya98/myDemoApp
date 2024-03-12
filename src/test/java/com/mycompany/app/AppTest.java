@@ -72,7 +72,7 @@ public class AppTest
         assertTrue(new App().search(array, 4, 2.5,3, array2));
     }
     
-    public void palindromeNumberTrue(){
+    public void palindromeNumberFalse(){
     	ArrayList<Integer> array = new ArrayList<>(Arrays.asList(111, 222, 333, 444));
         ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(111, 222, 333, 444));
         assertFalse(new App().search(array, 0, 2.5,3, array2));
