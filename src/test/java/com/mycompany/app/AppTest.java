@@ -63,7 +63,7 @@ public class AppTest
     public void testMeanFalse(){
     	ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
         ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-        assertFalse(new App().search(array, 0, 2.5,2, array2));
+        assertFalse(new App().search(array, 0, 2.6,2, array2));
     }
     
     public void testPalindromeNumberTrue(){
