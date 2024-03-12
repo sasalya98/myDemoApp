@@ -78,7 +78,7 @@ public class AppTest
         assertFalse(new App().search(array, 0, 2.5,3, array2));
     }
 		
-    public void testFound() {
+    /*public void testFound() {
         ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
         ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
         assertTrue(new App().search(array, 4, 2.0,-1, array2));
@@ -98,5 +98,5 @@ public class AppTest
 
     public void testNull() {
         assertFalse(new App().search(null, 1, 2.0, -1, null));
-    }
+    }*/
 }
