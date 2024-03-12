@@ -41,7 +41,43 @@ public class AppTest
     {
         assertTrue( true );
     }
-
+    
+    public void medianTrue(){
+    	ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+        ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+        assertTrue(new App().search(array, 0, 2.5,1, array2));
+    }
+    
+    public void medianFalse(){
+    	ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+        ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+        assertFalse(new App().search(array, 0, 2.6,1, array2));
+    }
+    
+    public void meanTrue(){
+    	ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+        ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+        assertTrue(new App().search(array, 0, 2.5,2, array2));
+    }
+    
+    public void meanFalse(){
+    	ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+        ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+        assertFalse(new App().search(array, 0, 2.5,2, array2));
+    }
+    
+    public void palindromeNumberTrue(){
+    	ArrayList<Integer> array = new ArrayList<>(Arrays.asList(111, 222, 333, 444));
+        ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(111, 222, 333, 444));
+        assertTrue(new App().search(array, 4, 2.5,3, array2));
+    }
+    
+    public void palindromeNumberTrue(){
+    	ArrayList<Integer> array = new ArrayList<>(Arrays.asList(111, 222, 333, 444));
+        ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(111, 222, 333, 444));
+        assertFalse(new App().search(array, 0, 2.5,3, array2));
+    }
+		
     public void testFound() {
         ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
         ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
